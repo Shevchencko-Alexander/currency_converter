@@ -1,19 +1,36 @@
+$main-border-radius: 10px;
+
 .header {
-   font-family: Arial, Helvetica, sans-serif;
    background-color: rgb(53, 53, 53);
-   width: 400px;
-   border-radius: 10px;
+   width: 500px;
+   border-radius: $main-border-radius;
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
    margin: 10px 0;
    padding: 10px 0;
 
+   &__title {
+      font-size: 20px;
+      color: bisque;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+   }
+
+   &__item {
+      margin-bottom: 5px;
+   }
+
    &__container {
       background-color: bisque;
-      border-radius: 10px;
+      border-radius: $main-border-radius;
       padding: 5px 0;
       width: 300px;
       text-align: center;
+
+      & :last-child {
+         margin-bottom: 0;
+      }
    }
 }

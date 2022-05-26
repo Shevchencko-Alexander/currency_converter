@@ -1,0 +1,56 @@
+$font-weight: 700;
+$main-border-radius: 10px;
+
+.converter {
+   background-color: rgb(53, 53, 53);
+   width: 500px;
+   border-radius: $main-border-radius;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+   &__selection {
+      display: flex;
+      width: 450px;
+      align-items: center;
+      justify-content: space-between;
+   }
+}
+
+.selection {
+   margin: 10px;
+
+   &__select {
+      font-size: 17px;
+      padding: 5px;
+      border-radius: $main-border-radius;
+      height: 30px;
+      font-weight: $font-weight;
+   }
+
+   &__option {
+      font-weight: $font-weight;
+      color: rgb(0, 121, 34);
+   }
+
+   &__text {
+      font-size: 20px;
+      font-weight: $font-weight;
+      color: white;
+   }
+
+   &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+   }
+
+   &__input {
+      border-radius: $main-border-radius;
+      margin-top: 10px;
+      padding: 5px;
+      font-size: 15px;
+   }
+}
