@@ -1,24 +1,4 @@
 <div class="wrapper">
    <app-header></app-header>
-   <div class="main-container">
-      <div class="selection-cont">
-         <select #c1 name="" id="country1" (mouseleave)="changeBase(c1.value)">
-            <option value="USD">US Dollar</option>
-            <option value="UAH">Ukrainian hryvnia</option>
-            <option value="EUR">Euro</option>
-         </select>
-         <p>to</p>
-         <select #c2 name="" id="country1" (mouseleave)="toCountry(c2.value)">
-            <option value="USD">US Dollar</option>
-            <option value="UAH">Ukrainian hryvnia</option>
-            <option value="EUR">Euro</option>
-         </select>
-      </div>
-      <button (click)="convert()">Submit</button>
-      <div class="result-container">
-         <p>1 {{ base }}</p>
-         <p>=</p>
-         <p>{{ result }} {{ country2 }}</p>
-      </div>
-   </div>
+   <app-converter></app-converter>
 </div>

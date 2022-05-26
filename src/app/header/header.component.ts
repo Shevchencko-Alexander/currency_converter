@@ -1,3 +1,4 @@
+import { Currency } from './../currency-api-data.service';
 import { Component, OnInit } from '@angular/core';
 import { CurrencyApiDataService } from '../currency-api-data.service';
 
@@ -7,26 +8,27 @@ import { CurrencyApiDataService } from '../currency-api-data.service';
    styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-   currentJSON: any = [];
+   constructor(private currency: CurrencyApiDataService) {}
+
+   getTargetCurrency = (targetCurrency: string) => {
+      this.currency.getCurrencyData(targetCurrency).subscribe((data) => {
+         this.currencyArray = data;
+
+         targetCurrency === this.USD
+            ? (this.resultUSD = this.currencyArray.rates!.UAH)
+            : (this.resultEUR = this.currencyArray.rates!.UAH);
+      });
+   };
+
+   currencyArray: Currency = {};
 
    USD = 'USD';
    EUR = 'EUR';
-   resultUSD = '';
-   resultEUR = '';
-
-   constructor(private currency: CurrencyApiDataService) {}
+   resultUSD = 0;
+   resultEUR = 0;
 
    ngOnInit(): void {
-      this.currency.getCurrencyData(this.USD).subscribe((data) => {
-         this.currentJSON = data;
-
-         this.resultUSD = this.currentJSON.rates.UAH;
-      });
-
-      this.currency.getCurrencyData(this.EUR).subscribe((data) => {
-         this.currentJSON = data;
-
-         this.resultEUR = this.currentJSON.rates.UAH;
-      });
+      this.getTargetCurrency(this.USD);
+      this.getTargetCurrency(this.EUR);
    }
 }

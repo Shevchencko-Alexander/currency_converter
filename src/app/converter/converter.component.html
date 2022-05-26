@@ -1,0 +1,45 @@
+<div class="converter">
+   <div class="converter__selection selection">
+      <div class="selection__item">
+         <select
+            class="selection__select"
+            #firstCurrency
+            (change)="changeFirstCurrency(firstCurrency.value)"
+         >
+            <option class="selection__option" value="USD">US Dollar</option>
+            <option class="selection__option" value="UAH">
+               Ukrainian hryvnia
+            </option>
+            <option class="selection__option" value="EUR">Euro</option>
+         </select>
+         <input
+            [(ngModel)]="firstInput"
+            [ngModelOptions]="{ standalone: true }"
+            class="selection__input"
+            type="text"
+            (input)="changeFirstInput()"
+         />
+      </div>
+      <p class="selection__text">to</p>
+      <div class="selection__item">
+         <select
+            class="selection__select"
+            #secondCurrency
+            (change)="changeSecondCurrency(secondCurrency.value)"
+         >
+            <option class="selection__option" value="USD">US Dollar</option>
+            <option class="selection__option" value="UAH">
+               Ukrainian hryvnia
+            </option>
+            <option class="selection__option" value="EUR">Euro</option>
+         </select>
+         <input
+            [(ngModel)]="secondInput"
+            [ngModelOptions]="{ standalone: true }"
+            class="selection__input"
+            type="text"
+            (input)="changeSecondInput()"
+         />
+      </div>
+   </div>
+</div>
